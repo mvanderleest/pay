@@ -50,7 +50,7 @@ module Pay
       def create_stripe_subscription(name, plan, options = {})
         opts = {
           expand: ["pending_setup_intent", "latest_invoice.payment_intent"],
-          items: [plan: plan],
+          items: [plan: plan, quantity: options.quantity],
           off_session: true
         }.merge(options)
 
